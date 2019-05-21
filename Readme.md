@@ -4,7 +4,7 @@
 Add string interpolation to your R6RS scheme code with the familiar '$'
 
 Examples:
-```scala
+```scheme
 (import (dollar-sign))
 
 ; simple case
