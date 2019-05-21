@@ -1,0 +1,9 @@
+
+(import (akku format manifest))
+
+(akku-package ("dollar-sign" "1.0.0")
+  (synopsis "Adds dollar sign string interpolation")
+  (description "dollar-sign provides a macro '$' that adds string interpolation
+triggered by a \"$\" in string.")
+  (authors "Graham Watt")
+  (license "0BSD"))
