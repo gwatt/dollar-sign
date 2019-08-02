@@ -31,5 +31,14 @@ Examples:
 ; functions with one or more arguments do not need the extra set of parentheses
 (define (two) 2)
 ($"$((two))") => "2"
-($"$(+ 1 2 3 4)") => 10
+; functions that take arguments can be called either way:
+($"$(+ 1 2 3 4)") => "10"
+($"$((+ 1 2 3 4))") => "10"
+
+; literal dollar signs in your string:
+; put two dollar signs in a row
+($"$$") => "$"
+(let ((dollars 10)
+      (cents 99))
+  ($"$$$(dollars).$(cents)")) => "$10.99"
 ```
