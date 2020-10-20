@@ -6,4 +6,5 @@
   (description "dollar-sign provides a macro '$' that adds string interpolation
 triggered by a \"$\" in string.")
   (authors "Graham Watt")
-  (license "0BSD"))
+  (license "0BSD")
+  (location (git "https://github.com/gwatt/dollar-sign")))
