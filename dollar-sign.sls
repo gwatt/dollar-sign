@@ -16,10 +16,9 @@
            (define (parse-string char)
              (cond
                [(eof-object? char) (list (print-with #'display (get)))]
-               [(or (and (char=? char  #\$)
-                         (char=? (peek-char in) #\$))
-                    (and (char=? char #\#)
-                         (char=? (peek-char in) #\#)))
+               [(let ([next (peek-char in)])
+                  (or (char=? char next #\$)
+                      (char=? char next #\#)))
                 (put-char out (get-char in))
                 (parse-string (get-char in))]
                [(char=? char #\$) (gen-output #'display)]
