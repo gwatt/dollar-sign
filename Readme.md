@@ -1,7 +1,8 @@
 
 ## Dollar Sign
 
-Add string interpolation to your R6RS scheme code with the familiar '$'
+Add string interpolation to your R6RS scheme code with the familiar '$' or the '#'
+The '$' interpolator will stringify as with display while '#' will stringify as with write.
 
 Examples:
 ```scheme
@@ -41,4 +42,13 @@ Examples:
 (let ((dollars 10)
       (cents 99))
   ($"$$$(dollars).$(cents)")) => "$10.99"
+```
+
+Examples using `#`:
+```scheme
+(let ([a #\a])
+  ($"#a")) => "#\\a"
+
+(let ([a "asdf"])
+  ($"#a")) => "\"asdf\""
 ```
