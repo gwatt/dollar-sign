@@ -38,9 +38,9 @@
                             [(null? (cdr expr)) (car expr)]
                             [else expr])]
                     [expr (datum->syntax #'k expr)])
-               (case s
-                 [("") (cons (print-with func expr)
-                         (parse-string (get-char in)))]
+               (cond
+                 [(string=? s "") (cons (print-with func expr)
+                                    (parse-string (get-char in)))]
                  [else (cons* (print-with #'display s)
                          (print-with func expr)
                          (parse-string (get-char in)))])))
