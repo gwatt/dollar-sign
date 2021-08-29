@@ -13,12 +13,15 @@
              (lambda (p)
                  #`(#,func #,dat #,p)))
 
+           (define (ch=? a b c)
+             (and (eqv? a b) (eqv? b c)))
+
            (define (parse-string char)
              (cond
                [(eof-object? char) (list (print-with #'display (get)))]
                [(let ([next (peek-char in)])
-                  (or (char=? char next #\$)
-                      (char=? char next #\#)))
+                  (or (ch=? char next #\$)
+                      (ch=? char next #\#)))
                 (put-char out (get-char in))
                 (parse-string (get-char in))]
                [(char=? char #\$) (gen-output #'display)]
